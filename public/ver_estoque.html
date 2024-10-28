@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Estoque</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Produtos no Estoque</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome do Produto</th>
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+            <tbody id="listaProdutos"></tbody>
+        </table>
+        <button onclick="window.location.href='estoque.html'">Voltar para Estoque</button>
+    </div>
+    <script>
+        // Carregar estoque do Local Storage
+        const produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+        const lista = document.getElementById("listaProdutos");
+        produtos.forEach(produto => {
+            lista.innerHTML += `<tr><td>${produto.nome}</td><td>${produto.quantidade}</td></tr>`;
+        });
+    </script>
+</body>
+</html>
+
+
+
+
